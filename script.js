@@ -168,6 +168,7 @@ async function loadPersonalRepos() {
     li.textContent = repo.name;
     ul.appendChild(li);
   }
+  debugLog('[loadPersonalRepos] Finished updating UI with personal repos.');
 }
 
 async function loadRepos(orgLogin) {
