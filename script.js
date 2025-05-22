@@ -91,7 +91,7 @@ async function loadOrgs() {
         <button type="submit">Create Repo</button>
       </form>`;
     orgList.appendChild(container);
-    loadRepos(org.login);
+    await loadRepos(org.login);
   }
 }
 
