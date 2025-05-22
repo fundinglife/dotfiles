@@ -178,3 +178,15 @@ async function createRepo(event, orgLogin) {
   loadRepos(orgLogin);
   input.value = "";
 }
+// On page load, check URL for token parameter and auto-fill input and load orgs if present
+window.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tokenParam = urlParams.get('token');
+  if (tokenParam) {
+    const tokenInput = document.getElementById('tokenInput');
+    if (tokenInput) {
+      tokenInput.value = tokenParam;
+      loadOrgs();
+    }
+  }
+});
