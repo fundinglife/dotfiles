@@ -30,7 +30,6 @@ window.addEventListener('DOMContentLoaded', function() {
   if (btn) btn.onclick = loadOrgs;
 });
 document.body.insertAdjacentHTML("beforeend", "<p style='color:green;'>✅ script.js is working</p>");
-debugLog('✅ Debug console enabled.');
 let token = "";
 
 async function githubFetch(url, options = {}) {
