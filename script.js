@@ -72,6 +72,7 @@ async function loadOrgs() {
   const orgList = document.getElementById("orgList");
   orgList.innerHTML = "";
   for (const org of orgs) {
+    debugLog(`[loadOrgs] Org login: ${org.login}`); // Added debug log for each org
     const container = document.createElement("div");
     container.innerHTML = `<h2>${org.login}</h2><ul id="repos-${org.login}"></ul>
       <form onsubmit="createRepo(event, '${org.login}')">
