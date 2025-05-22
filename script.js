@@ -146,6 +146,7 @@ async function loadPersonalRepos() {
   let repos;
   try {
     repos = await fetchAllPages("https://api.github.com/user/repos?per_page=100");
+    debugLog(`[loadPersonalRepos] Fetched repos count: ${repos.length}`);
   } catch (e) {
     debugLog(`[loadPersonalRepos] Error: ${e}`);
     return;
@@ -217,3 +218,15 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+// Add debug logs inside loadPersonalRepos to verify data and errors
+const originalLoadPersonalRepos = loadPersonalRepos;
+loadPersonalRepos = async function() {
+  try {
+    const repos = await fetchAllPages("https://api.github.com/user/repos?per_page=100");
+    debugLog(`[loadPersonalRepos] Fetched repos count: ${repos.length}`);
+    return originalLoadPersonalRepos.apply(this, arguments);
+  } catch (e) {
+    debugLog(`[loadPersonalRepos] Error fetching repos: ${e}`);
+    throw e;
+  }
+};
