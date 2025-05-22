@@ -97,6 +97,7 @@ async function loadRepos(orgLogin) {
   const ul = document.getElementById(`repos-${orgLogin}`);
   ul.innerHTML = "";
   for (const repo of repos) {
+    debugLog(`[loadRepos] Repo: ${repo.name}`); // Added debug log for each repo
     const li = document.createElement("li");
     li.textContent = repo.name;
     ul.appendChild(li);
