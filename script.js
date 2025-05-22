@@ -1,16 +1,28 @@
 // Debug flag and virtual console
 const DEBUG = true;
 let debugConsole;
+function debugLog() {}
 if (DEBUG) {
-  debugConsole = document.createElement('div');
-  debugConsole.id = 'debugConsole';
-  debugConsole.style = 'background:#222;color:#0f0;padding:8px;font-family:monospace;max-height:200px;overflow:auto;margin:8px 0;white-space:pre-wrap;';
-  document.body.appendChild(debugConsole);
-  function debugLog(msg) {
+  window.addEventListener('DOMContentLoaded', function() {
+    debugConsole = document.createElement('div');
+    debugConsole.id = 'debugConsole';
+    debugConsole.style = 'background:#222;color:#0f0;padding:8px;font-family:monospace;max-height:200px;overflow:auto;margin:8px 0;white-space:pre-wrap;';
+    document.body.appendChild(debugConsole);
+  });
+  debugLog = function(msg) {
+    if (!debugConsole) {
+      // If called before DOMContentLoaded, buffer logs
+      if (!window._debugLogBuffer) window._debugLogBuffer = [];
+      window._debugLogBuffer.push(msg);
+      return;
+    }
+    // Flush buffer if needed
+    if (window._debugLogBuffer && window._debugLogBuffer.length) {
+      for (const m of window._debugLogBuffer) debugConsole.textContent += (typeof m === 'string' ? m : JSON.stringify(m, null, 2)) + '\n';
+      window._debugLogBuffer = [];
+    }
     debugConsole.textContent += (typeof msg === 'string' ? msg : JSON.stringify(msg, null, 2)) + '\n';
-  }
-} else {
-  function debugLog() {}
+  };
 }
 // Ensure the Load Orgs button works even if script is loaded in <head> or before DOM
 window.addEventListener('DOMContentLoaded', function() {
