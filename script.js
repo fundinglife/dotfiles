@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', function() {
 document.body.insertAdjacentHTML("beforeend", "<p style='color:green;'>✅ script.js is working</p>");
 let token = "";
 
-async function githubFetch(url, options = {}) {
+async function githubFetch(url, options = {}, returnHeaders = false) {
   const headers = {
     Authorization: `token ${token}`,
     Accept: "application/vnd.github+json",
@@ -49,11 +49,38 @@ async function githubFetch(url, options = {}) {
     }
     const data = await response.json();
     debugLog(`[githubFetch] Response: ${JSON.stringify(data)}`);
+    if (returnHeaders) {
+      return { data, headers: response.headers };
+    }
     return data;
   } catch (e) {
     debugLog(`[githubFetch] Error: ${e}`);
     throw e;
   }
+}
+
+async function fetchAllPages(url) {
+  let results = [];
+  let nextUrl = url;
+  while (nextUrl) {
+    const { data, headers } = await githubFetch(nextUrl, {}, true);
+    results = results.concat(data);
+    const linkHeader = headers.get('link');
+    if (linkHeader) {
+      const links = {};
+      linkHeader.split(',').forEach(part => {
+        const section = part.split(';');
+        if (section.length !== 2) return;
+        const urlPart = section[0].trim().slice(1, -1);
+        const namePart = section[1].trim().replace(/rel="(.*)"/, '$1');
+        links[namePart] = urlPart;
+      });
+      nextUrl = links['next'] || null;
+    } else {
+      nextUrl = null;
+    }
+  }
+  return results;
 }
 
 async function loadOrgs() {
@@ -66,7 +93,7 @@ async function loadOrgs() {
   }
   let orgs;
   try {
-    orgs = await githubFetch("https://api.github.com/user/orgs");
+    orgs = await fetchAllPages("https://api.github.com/user/orgs?per_page=100");
   } catch (e) {
     debugLog(`[loadOrgs] Error fetching orgs: ${e}`);
     alert('Error fetching organizations. See debug console.');
@@ -118,7 +145,7 @@ async function loadRepos(orgLogin) {
   debugLog(`[loadRepos] Org: ${orgLogin}`);
   let repos;
   try {
-    repos = await githubFetch(`https://api.github.com/orgs/${orgLogin}/repos`);
+    repos = await fetchAllPages(`https://api.github.com/orgs/${orgLogin}/repos?per_page=100`);
   } catch (e) {
     debugLog(`[loadRepos] Error: ${e}`);
     return;
@@ -128,7 +155,7 @@ async function loadRepos(orgLogin) {
     debugLog('[loadPersonalRepos] Loading personal repositories');
     let repos;
     try {
-      repos = await githubFetch("https://api.github.com/user/repos");
+      repos = await fetchAllPages("https://api.github.com/user/repos?per_page=100");
     } catch (e) {
       debugLog(`[loadPersonalRepos] Error: ${e}`);
       return;
