@@ -1,3 +1,8 @@
+// Ensure the Load Orgs button works even if script is loaded in <head> or before DOM
+window.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById("loadOrgsBtn");
+  if (btn) btn.onclick = loadOrgs;
+});
 document.body.insertAdjacentHTML("beforeend", "<p style='color:green;'>✅ script.js is working</p>");
 let token = "";
 
