@@ -103,9 +103,16 @@ async function loadOrgs() {
   const orgList = document.getElementById("orgList");
   orgList.innerHTML = "";
 
-  // Load personal repos block and wait for it to finish before loading orgs
+  // Load personal repos block with create form and wait for it to finish before loading orgs
   const personalContainer = document.createElement("div");
-  personalContainer.innerHTML = `<h2>Personal</h2><ul id="repos-personal"></ul>`;
+  personalContainer.innerHTML = `
+    <h2>Personal</h2>
+    <ul id="repos-personal"></ul>
+    <form onsubmit="createPersonalRepo(event)">
+      <input type="text" placeholder="New personal repo name" name="reponame" required />
+      <button type="submit">Create Personal Repo</button>
+    </form>
+  `;
   orgList.appendChild(personalContainer);
   await loadPersonalRepos();
 
@@ -156,17 +163,26 @@ async function loadPersonalRepos() {
     debugLog('[loadPersonalRepos] No personal repositories found.');
   }
   debugLog(`[loadPersonalRepos] Repos: ${JSON.stringify(repos)}`);
-  const ul = document.getElementById("repos-personal");
-  if (!ul) {
+  const container = document.getElementById("repos-personal");
+  if (!container) {
     debugLog('[loadPersonalRepos] No element with id "repos-personal" found.');
     return;
   }
-  ul.innerHTML = "";
+  container.innerHTML = "";
+  container.className = "repo-list";
   for (const repo of repos) {
     debugLog(`[loadPersonalRepos] Repo: ${repo.name}`);
-    const li = document.createElement("li");
-    li.textContent = repo.name;
-    ul.appendChild(li);
+    const card = document.createElement("div");
+    card.className = "repo-card";
+    card.innerHTML = `
+      <h3>${repo.name}</h3>
+      <p>${repo.description || "No description"}</p>
+      <div class="repo-stats">
+        <span>⭐ ${repo.stargazers_count}</span>
+        <span>🍴 ${repo.forks_count}</span>
+      </div>
+    `;
+    container.appendChild(card);
   }
   debugLog('[loadPersonalRepos] Finished updating UI with personal repos.');
 }
@@ -181,13 +197,23 @@ async function loadRepos(orgLogin) {
     return;
   }
   debugLog(`[loadRepos] Repos: ${JSON.stringify(repos)}`);
-  const ul = document.getElementById(`repos-${orgLogin}`);
-  ul.innerHTML = "";
+  const container = document.getElementById(`repos-${orgLogin}`);
+  container.innerHTML = "";
+  container.className = "repo-list";
   for (const repo of repos) {
-    debugLog(`[loadRepos] Repo: ${repo.name}`); // Added debug log for each repo
-    const li = document.createElement("li");
-    li.textContent = repo.name;
-    ul.appendChild(li);
+    debugLog(`[loadRepos] Appending repo: ${repo.name}`);
+    const card = document.createElement("div");
+    card.className = "repo-card";
+    card.innerHTML = `
+      <h3>${repo.name}</h3>
+      <p>${repo.description || "No description"}</p>
+      <div class="repo-stats">
+        <span>⭐ ${repo.stargazers_count}</span>
+        <span>🍴 ${repo.forks_count}</span>
+      </div>
+    `;
+    container.appendChild(card);
+    debugLog(`[loadRepos] Appended repo: ${repo.name}`);
   }
 }
 
@@ -227,6 +253,32 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// Create personal repo function
+async function createPersonalRepo(event) {
+  event.preventDefault();
+  const input = event.target.reponame;
+  const name = input.value.trim();
+  debugLog(`[createPersonalRepo] Name: ${name}`);
+  if (!name) {
+    debugLog('[createPersonalRepo] No repo name entered.');
+    return;
+  }
+  try {
+    await githubFetch(`https://api.github.com/user/repos`, {
+      method: "POST",
+      body: JSON.stringify({ name }),
+      headers: { "Content-Type": "application/json" },
+    });
+    debugLog('[createPersonalRepo] Repo created.');
+  } catch (e) {
+    debugLog(`[createPersonalRepo] Error: ${e}`);
+    alert('Error creating personal repo. See debug console.');
+    return;
+  }
+  await loadPersonalRepos();
+  input.value = "";
+}
 // Add debug logs inside loadPersonalRepos to verify data and errors
 const originalLoadPersonalRepos = loadPersonalRepos;
 loadPersonalRepos = async function() {

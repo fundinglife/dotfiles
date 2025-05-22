@@ -13,7 +13,27 @@
     <button onclick="loadOrgs()">Load Orgs</button>
   </label>
 
+:start_line:16
+-------
   <div id="orgList"></div>
+  <style>
+    /* Temporary inline style to ensure form inputs and buttons have some spacing */
+    form {
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+    form input[type="text"] {
+      padding: 6px;
+      font-size: 1rem;
+      width: 200px;
+      margin-right: 8px;
+    }
+    form button {
+      padding: 6px 12px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
 
   <script src="script.js"></script>
 </body>
