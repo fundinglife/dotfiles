@@ -141,6 +141,26 @@ async function loadOrgs() {
   }
 }
 
+async function loadPersonalRepos() {
+  debugLog('[loadPersonalRepos] Loading personal repositories');
+  let repos;
+  try {
+    repos = await fetchAllPages("https://api.github.com/user/repos?per_page=100");
+  } catch (e) {
+    debugLog(`[loadPersonalRepos] Error: ${e}`);
+    return;
+  }
+  debugLog(`[loadPersonalRepos] Repos: ${JSON.stringify(repos)}`);
+  const ul = document.getElementById("repos-personal");
+  ul.innerHTML = "";
+  for (const repo of repos) {
+    debugLog(`[loadPersonalRepos] Repo: ${repo.name}`);
+    const li = document.createElement("li");
+    li.textContent = repo.name;
+    ul.appendChild(li);
+  }
+}
+
 async function loadRepos(orgLogin) {
   debugLog(`[loadRepos] Org: ${orgLogin}`);
   let repos;
@@ -149,26 +169,6 @@ async function loadRepos(orgLogin) {
   } catch (e) {
     debugLog(`[loadRepos] Error: ${e}`);
     return;
-  }
-    
-  async function loadPersonalRepos() {
-    debugLog('[loadPersonalRepos] Loading personal repositories');
-    let repos;
-    try {
-      repos = await fetchAllPages("https://api.github.com/user/repos?per_page=100");
-    } catch (e) {
-      debugLog(`[loadPersonalRepos] Error: ${e}`);
-      return;
-    }
-    debugLog(`[loadPersonalRepos] Repos: ${JSON.stringify(repos)}`);
-    const ul = document.getElementById("repos-personal");
-    ul.innerHTML = "";
-    for (const repo of repos) {
-      debugLog(`[loadPersonalRepos] Repo: ${repo.name}`);
-      const li = document.createElement("li");
-      li.textContent = repo.name;
-      ul.appendChild(li);
-    }
   }
   debugLog(`[loadRepos] Repos: ${JSON.stringify(repos)}`);
   const ul = document.getElementById(`repos-${orgLogin}`);
