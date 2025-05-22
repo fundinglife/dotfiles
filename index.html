@@ -9,10 +9,11 @@
 <body>
   <h1>GitHub Org Dashboard</h1>
 
-  <label>GitHub Token:
-    <input type="password" id="tokenInput" placeholder="Paste your PAT here" style="width: 400px;" />
+  <div class="token-container">
+    <label for="tokenInput">GitHub Token:</label>
+    <input type="password" id="tokenInput" placeholder="Paste your PAT here" />
     <button onclick="loadOrgs()">Load Orgs</button>
-  </label>
+  </div>
 
   <div id="orgList"></div>
 

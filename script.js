@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function() {
     debugConsole = document.createElement('div');
     debugConsole.id = 'debugConsole';
     debugConsole.style = 'background:#222;color:#0f0;padding:8px;font-family:monospace;max-height:200px;overflow:auto;margin:8px 0;white-space:pre-wrap;';
-    document.body.insertBefore(debugConsole, document.body.firstChild);
+    document.body.appendChild(debugConsole);
     debugLog('✅ Debug console enabled.');
   }
 });
@@ -178,12 +178,15 @@ async function loadPersonalRepos() {
     const card = document.createElement("div");
     card.className = "repo-card";
     card.innerHTML = `
-      <h3>${repo.name}</h3>
-      <p>${repo.description || "No description"}</p>
-      <div class="repo-stats">
-        <span>⭐ ${repo.stargazers_count}</span>
-        <span>🍴 ${repo.forks_count}</span>
+      <div class="repo-info">
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description"}</p>
       </div>
+      <div class="repo-middle"></div>
+      <form class="repo-form" onsubmit="event.preventDefault();">
+        <input type="text" placeholder="New name" name="reponame" />
+        <button type="submit">Submit</button>
+      </form>
     `;
     container.appendChild(card);
   }
