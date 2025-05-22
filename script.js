@@ -43,6 +43,10 @@ async function githubFetch(url, options = {}) {
   try {
     const response = await fetch(url, { ...options, headers });
     debugLog(`[githubFetch] Status: ${response.status}`);
+    if (response.status === 204) {
+      debugLog(`[githubFetch] No content returned (204)`);
+      return [];
+    }
     const data = await response.json();
     debugLog(`[githubFetch] Response: ${JSON.stringify(data)}`);
     return data;
