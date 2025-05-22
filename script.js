@@ -72,11 +72,11 @@ async function loadOrgs() {
   const orgList = document.getElementById("orgList");
   orgList.innerHTML = "";
 
-  // Load personal repos block
+  // Load personal repos block and wait for it to finish before loading orgs
   const personalContainer = document.createElement("div");
   personalContainer.innerHTML = `<h2>Personal</h2><ul id="repos-personal"></ul>`;
   orgList.appendChild(personalContainer);
-  loadPersonalRepos();
+  await loadPersonalRepos();
 
   for (const org of orgs) {
     debugLog(`[loadOrgs] Org login: ${org.login}`); // Added debug log for each org
