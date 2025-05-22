@@ -82,6 +82,8 @@ async function loadOrgs() {
   orgList.appendChild(personalContainer);
   await loadPersonalRepos();
 
+  debugLog(`[loadOrgs] Finished loading personal repos`);
+
   for (const org of orgs) {
     debugLog(`[loadOrgs] Org login: ${org.login}`); // Added debug log for each org
     const container = document.createElement("div");
@@ -91,7 +93,24 @@ async function loadOrgs() {
         <button type="submit">Create Repo</button>
       </form>`;
     orgList.appendChild(container);
+    debugLog(`[loadOrgs] Appended container for org: ${org.login}`);
+
+    // More debug logs for loadRepos
+    debugLog(`[loadOrgs] Calling loadRepos for org: ${org.login}`);
     await loadRepos(org.login);
+    debugLog(`[loadOrgs] Finished loading repos for org: ${org.login}`);
+
+    // Additional debug logs for each repo in org
+    debugLog(`[loadOrgs] Listing repos for org: ${org.login}`);
+    const ul = document.getElementById(`repos-${org.login}`);
+    if (!ul) {
+      debugLog(`[loadOrgs] No ul element found for org: ${org.login}`);
+    } else {
+      debugLog(`[loadOrgs] ul element found for org: ${org.login}, children count: ${ul.children.length}`);
+      for (const child of ul.children) {
+        debugLog(`[loadOrgs] Repo list item: ${child.textContent}`);
+      }
+    }
   }
 }
 
