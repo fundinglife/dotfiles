@@ -1,0 +1,761 @@
+{
+  "tools": [
+    {
+      "name": "github",
+      "description": "Distributed Version Control System",
+      "cli_name": "git",
+      "install": true,
+      "packages": []
+    },
+    {
+      "name": "azure-cli",
+      "description": "Azure Command Line Interface",
+      "cli_name": "az",
+      "install": true,
+      "packages": []
+    },
+    {
+      "name": "azure-dev-cli",
+      "description": "Azure Developer CLI",
+      "cli_name": "azd",
+      "install": true,
+      "packages": []
+    },
+    {
+      "name": "github-cli",
+      "description": "GitHub Command Line Interface",
+      "cli_name": "gh",
+      "install": true,
+      "packages": []
+    },
+    {
+      "name": "wrangler",
+      "description": "Cloudflare Workers CLI",
+      "cli_name": "wrangler",
+      "install": true,
+      "packages": []
+    },
+    {
+      "name": "python",
+      "description": "Python Programming Language and Environment",
+      "cli_name": "python",
+      "install": true,
+      "packages": [
+        {
+          "name": "fastapi",
+          "description": "FastAPI Web Framework",
+          "package_name": "python-fastapi",
+          "install": true
+        },
+        {
+          "name": "uvicorn",
+          "description": "Uvicorn ASGI Server",
+          "package_name": "python-uvicorn",
+          "install": true
+        },
+        {
+          "name": "requests",
+          "description": "HTTP Requests Library",
+          "package_name": "python-requests",
+          "install": true
+        },
+        {
+          "name": "httpx",
+          "description": "Async HTTP Client",
+          "package_name": "python-httpx",
+          "install": true
+        },
+        {
+          "name": "pydantic",
+          "description": "Data Validation and Parsing",
+          "package_name": "python-pydantic",
+          "install": true
+        },
+        {
+          "name": "numpy",
+          "description": "Numerical Computing",
+          "package_name": "python-numpy",
+          "install": true
+        },
+        {
+          "name": "pandas",
+          "description": "Data Analysis and Manipulation",
+          "package_name": "python-pandas",
+          "install": true
+        },
+        {
+          "name": "matplotlib",
+          "description": "Plotting and Visualization",
+          "package_name": "python-matplotlib",
+          "install": true
+        },
+        {
+          "name": "scipy",
+          "description": "Scientific Computing",
+          "package_name": "python-scipy",
+          "install": true
+        },
+        {
+          "name": "scikit-learn",
+          "description": "Machine Learning",
+          "package_name": "python-scikit-learn",
+          "install": true
+        },
+        {
+          "name": "jupyter",
+          "description": "Interactive Notebooks",
+          "package_name": "python-jupyter",
+          "install": true
+        },
+        {
+          "name": "pytest",
+          "description": "Testing Framework",
+          "package_name": "python-pytest",
+          "install": true
+        },
+        {
+          "name": "gunicorn",
+          "description": "WSGI Server",
+          "package_name": "python-gunicorn",
+          "install": true
+        },
+        {
+          "name": "flask",
+          "description": "Lightweight Web Framework",
+          "package_name": "python-flask",
+          "install": true
+        },
+        {
+          "name": "django",
+          "description": "Full-featured Web Framework",
+          "package_name": "python-django",
+          "install": true
+        },
+        {
+          "name": "urllib3",
+          "description": "Lower-level HTTP Client",
+          "package_name": "python-urllib3",
+          "install": true
+        },
+        {
+          "name": "beautifulsoup4",
+          "description": "HTML/XML Parsing",
+          "package_name": "python-beautifulsoup4",
+          "install": true
+        },
+        {
+          "name": "lxml",
+          "description": "Fast XML/HTML Parser",
+          "package_name": "python-lxml",
+          "install": true
+        },
+        {
+          "name": "python-dotenv",
+          "description": "Manage .env Files",
+          "package_name": "python-python-dotenv",
+          "install": true
+        },
+        {
+          "name": "typer",
+          "description": "Command-line App Framework",
+          "package_name": "python-typer",
+          "install": true
+        },
+        {
+          "name": "click",
+          "description": "CLI Argument Parser",
+          "package_name": "python-click",
+          "install": true
+        },
+        {
+          "name": "rich",
+          "description": "Rich Text and Formatting",
+          "package_name": "python-rich",
+          "install": true
+        },
+        {
+          "name": "loguru",
+          "description": "Structured Logging",
+          "package_name": "python-loguru",
+          "install": true
+        },
+        {
+          "name": "jinja2",
+          "description": "Templating Engine",
+          "package_name": "python-jinja2",
+          "install": true
+        },
+        {
+          "name": "starlette",
+          "description": "ASGI Toolkit",
+          "package_name": "python-starlette",
+          "install": true
+        },
+        {
+          "name": "openpyxl",
+          "description": "Excel Read/Write",
+          "package_name": "python-openpyxl",
+          "install": true
+        },
+        {
+          "name": "pyarrow",
+          "description": "Apache Arrow Columnar Data",
+          "package_name": "python-pyarrow",
+          "install": true
+        },
+        {
+          "name": "polars",
+          "description": "Fast DataFrame Library",
+          "package_name": "python-polars",
+          "install": true
+        },
+        {
+          "name": "xgboost",
+          "description": "Gradient Boosting",
+          "package_name": "python-xgboost",
+          "install": true
+        },
+        {
+          "name": "lightgbm",
+          "description": "Fast Gradient Boosting",
+          "package_name": "python-lightgbm",
+          "install": true
+        },
+        {
+          "name": "tensorflow",
+          "description": "Deep Learning",
+          "package_name": "python-tensorflow",
+          "install": true
+        },
+        {
+          "name": "keras",
+          "description": "High-level DL API",
+          "package_name": "python-keras",
+          "install": true
+        },
+        {
+          "name": "torch",
+          "description": "PyTorch Deep Learning",
+          "package_name": "python-torch",
+          "install": true
+        },
+        {
+          "name": "transformers",
+          "description": "Hugging Face Models",
+          "package_name": "python-transformers",
+          "install": true
+        },
+        {
+          "name": "sentence-transformers",
+          "description": "Embeddings & Similarity",
+          "package_name": "python-sentence-transformers",
+          "install": true
+        },
+        {
+          "name": "seaborn",
+          "description": "Statistical Plots",
+          "package_name": "python-seaborn",
+          "install": true
+        },
+        {
+          "name": "plotly",
+          "description": "Interactive Charts",
+          "package_name": "python-plotly",
+          "install": true
+        },
+        {
+          "name": "altair",
+          "description": "Declarative Visualization",
+          "package_name": "python-altair",
+          "install": true
+        },
+        {
+          "name": "dash",
+          "description": "Web-based Dashboards",
+          "package_name": "python-dash",
+          "install": true
+        },
+        {
+          "name": "sqlalchemy",
+          "description": "ORM for SQL",
+          "package_name": "python-sqlalchemy",
+          "install": true
+        },
+        {
+          "name": "asyncpg",
+          "description": "Async PostgreSQL",
+          "package_name": "python-asyncpg",
+          "install": true
+        },
+        {
+          "name": "psycopg2",
+          "description": "Sync PostgreSQL",
+          "package_name": "python-psycopg2",
+          "install": true
+        },
+        {
+          "name": "pymongo",
+          "description": "MongoDB Driver",
+          "package_name": "python-pymongo",
+          "install": true
+        },
+        {
+          "name": "coverage",
+          "description": "Code Coverage Tool",
+          "package_name": "python-coverage",
+          "install": true
+        },
+        {
+          "name": "hypothesis",
+          "description": "Property-based Testing",
+          "package_name": "python-hypothesis",
+          "install": true
+        },
+        {
+          "name": "invoke",
+          "description": "Task Runner",
+          "package_name": "python-invoke",
+          "install": true
+        },
+        {
+          "name": "fabric",
+          "description": "SSH Command Execution",
+          "package_name": "python-fabric",
+          "install": true
+        },
+        {
+          "name": "paramiko",
+          "description": "SSH Library",
+          "package_name": "python-paramiko",
+          "install": true
+        },
+        {
+          "name": "docker",
+          "description": "Docker API Client",
+          "package_name": "python-docker",
+          "install": true
+        },
+        {
+          "name": "python-terraform",
+          "description": "Terraform Wrapper",
+          "package_name": "python-python-terraform",
+          "install": true
+        },
+        {
+          "name": "langchain",
+          "description": "RAG, Chains, Agents",
+          "package_name": "python-langchain",
+          "install": true
+        },
+        {
+          "name": "llama-index",
+          "description": "Vector Indexes & RAG",
+          "package_name": "python-llama-index",
+          "install": true
+        },
+        {
+          "name": "chromadb",
+          "description": "Vector DB Backend",
+          "package_name": "python-chromadb",
+          "install": true
+        },
+        {
+          "name": "openai",
+          "description": "OpenAI API SDK",
+          "package_name": "python-openai",
+          "install": true
+        },
+        {
+          "name": "tiktoken",
+          "description": "OpenAI Token Counters",
+          "package_name": "python-tiktoken",
+          "install": true
+        },
+        {
+          "name": "nltk",
+          "description": "NLP Processing",
+          "package_name": "python-nltk",
+          "install": true
+        },
+        {
+          "name": "spacy",
+          "description": "Fast NLP Engine",
+          "package_name": "python-spacy",
+          "install": true
+        },
+        {
+          "name": "pip",
+          "description": "Python Package Manager",
+          "package_name": "python-pip",
+          "install": true
+        },
+        {
+          "name": "setuptools",
+          "description": "Package Builder",
+          "package_name": "python-setuptools",
+          "install": true
+        },
+        {
+          "name": "poetry",
+          "description": "Dependency Manager",
+          "package_name": "python-poetry",
+          "install": true
+        },
+        {
+          "name": "virtualenv",
+          "description": "Environment Creation",
+          "package_name": "python-virtualenv",
+          "install": true
+        },
+        {
+          "name": "accelerate",
+          "description": "Efficient Training Across Devices",
+          "package_name": "python-accelerate",
+          "install": true
+        },
+        {
+          "name": "peft",
+          "description": "Parameter-efficient Fine-tuning",
+          "package_name": "python-peft",
+          "install": true
+        },
+        {
+          "name": "trl",
+          "description": "Transformers + RLHF Tools",
+          "package_name": "python-trl",
+          "install": true
+        },
+        {
+          "name": "bitsandbytes",
+          "description": "8-bit Model Support",
+          "package_name": "python-bitsandbytes",
+          "install": true
+        },
+        {
+          "name": "faiss-cpu",
+          "description": "Vector Search (CPU)",
+          "package_name": "python-faiss-cpu",
+          "install": true
+        },
+        {
+          "name": "faiss-gpu",
+          "description": "Vector Search (GPU)",
+          "package_name": "python-faiss-gpu",
+          "install": true
+        },
+        {
+          "name": "weaviate-client",
+          "description": "Weaviate Vector DB Client",
+          "package_name": "python-weaviate-client",
+          "install": true
+        },
+        {
+          "name": "pinecone-client",
+          "description": "Pinecone Vector DB Client",
+          "package_name": "python-pinecone-client",
+          "install": true
+        },
+        {
+          "name": "textstat",
+          "description": "Readability & Complexity Scoring",
+          "package_name": "python-textstat",
+          "install": true
+        },
+        {
+          "name": "fugashi",
+          "description": "Japanese NLP",
+          "package_name": "python-fugashi",
+          "install": true
+        },
+        {
+          "name": "jieba",
+          "description": "Chinese Word Segmentation",
+          "package_name": "python-jieba",
+          "install": true
+        },
+        {
+          "name": "tokenizers",
+          "description": "Fast Tokenizer Backend",
+          "package_name": "python-tokenizers",
+          "install": true
+        },
+        {
+          "name": "Pillow",
+          "description": "Image Processing",
+          "package_name": "python-pillow",
+          "install": true
+        },
+        {
+          "name": "opencv-python",
+          "description": "Computer Vision",
+          "package_name": "python-opencv-python",
+          "install": true
+        },
+        {
+          "name": "torchvision",
+          "description": "Vision Datasets & Transforms",
+          "package_name": "python-torchvision",
+          "install": true
+        },
+        {
+          "name": "diffusers",
+          "description": "Stable Diffusion & Image Generation",
+          "package_name": "python-diffusers",
+          "install": true
+        },
+        {
+          "name": "datasets",
+          "description": "Hugging Face Datasets",
+          "package_name": "python-datasets",
+          "install": true
+        }
+      ]
+    },
+    {
+      "name": "nvm",
+      "description": "Node Version Manager",
+      "cli_name": "nvm",
+      "install": true,
+      "packages": []
+    },
+    {
+      "name": "fvm",
+      "description": "Flutter Version Manager",
+      "cli_name": "fvm",
+      "install": true,
+      "packages": []
+    }
+  ],
+  "extensions": [
+    {
+      "name": "python",
+      "description": "Python Language Support",
+      "library_name": "ms-python.python",
+      "install": true
+    },
+    {
+      "name": "prettier",
+      "description": "Code formatter",
+      "library_name": "esbenp.prettier-vscode",
+      "install": true
+    },
+    {
+      "name": "jupyter",
+      "description": "Notebook support in VS Code",
+      "library_name": "ms-toolsai.jupyter",
+      "install": true
+    },
+    {
+      "name": "github-pull-request",
+      "description": "GitHub PRs + issues integration",
+      "library_name": "GitHub.vscode-pull-request-github",
+      "install": true
+    },
+    {
+      "name": "gitlens",
+      "description": "Git history, blame, authorship",
+      "library_name": "eamodio.gitlens",
+      "install": true
+    },
+    {
+      "name": "docker",
+      "description": "Dockerfile, container management",
+      "library_name": "ms-azuretools.vscode-docker",
+      "install": true
+    },
+    {
+      "name": "remote-ssh",
+      "description": "SSH into VMs or dev servers",
+      "library_name": "ms-vscode-remote.remote-ssh",
+      "install": true
+    },
+    {
+      "name": "code-spell-checker",
+      "description": "Lightweight typo checking",
+      "library_name": "streetsidesoftware.code-spell-checker",
+      "install": true
+    },
+    {
+      "name": "intellicode",
+      "description": "AI-assisted IntelliSense",
+      "library_name": "VisualStudioExptTeam.vscodeintellicode",
+      "install": true
+    },
+    {
+      "name": "pylance",
+      "description": "Fast Python language server",
+      "library_name": "ms-python.vscode-pylance",
+      "install": true
+    },
+    {
+      "name": "jupyter-renderers",
+      "description": "Enhanced notebook outputs",
+      "library_name": "ms-toolsai.jupyter-renderers",
+      "install": true
+    },
+    {
+      "name": "huggingface-snippets",
+      "description": "Prebuilt snippets for Hugging Face Transformers",
+      "library_name": "huggingface.huggingface-vscode",
+      "install": true
+    },
+    {
+      "name": "black-formatter",
+      "description": "Python code auto-formatting",
+      "library_name": "ms-python.black-formatter",
+      "install": true
+    },
+    {
+      "name": "isort",
+      "description": "Python import sorter",
+      "library_name": "ms-python.isort",
+      "install": true
+    },
+    {
+      "name": "flake8",
+      "description": "Python linter",
+      "library_name": "ms-python.flake8",
+      "install": true
+    },
+    {
+      "name": "autodocstring",
+      "description": "Generates PEP-compliant docstrings",
+      "library_name": "njpwerner.autodocstring",
+      "install": true
+    },
+    {
+      "name": "rest-client",
+      "description": "Test HTTP APIs from .http files",
+      "library_name": "humao.rest-client",
+      "install": true
+    },
+    {
+      "name": "thunder-client",
+      "description": "GUI-based API testing",
+      "library_name": "rangav.vscode-thunder-client",
+      "install": true
+    },
+    {
+      "name": "tailwindcss",
+      "description": "Autocomplete for Tailwind classes",
+      "library_name": "bradlc.vscode-tailwindcss",
+      "install": true
+    },
+    {
+      "name": "live-server",
+      "description": "Live-reload static websites",
+      "library_name": "ritwickdey.LiveServer",
+      "install": true
+    },
+    {
+      "name": "azurecli",
+      "description": "Azure CLI Tools",
+      "library_name": "ms-vscode.azurecli",
+      "install": true
+    },
+    {
+      "name": "azure-account",
+      "description": "Log in to Azure",
+      "library_name": "ms-vscode.azure-account",
+      "install": true
+    },
+    {
+      "name": "azurecontainerapps",
+      "description": "Deploy/manage ACA from VS Code",
+      "library_name": "ms-azuretools.vscode-azurecontainerapps",
+      "install": true
+    },
+    {
+      "name": "kubernetes",
+      "description": "Helm, clusters, YAML completion",
+      "library_name": "ms-kubernetes-tools.vscode-kubernetes-tools",
+      "install": true
+    },
+    {
+      "name": "todo-highlight",
+      "description": "Highlights TODO and FIXME comments",
+      "library_name": "wayou.vscode-todo-highlight",
+      "install": true
+    },
+    {
+      "name": "bracket-pair-colorizer-2",
+      "description": "Matches and colors brackets",
+      "library_name": "CoenraadS.bracket-pair-colorizer-2",
+      "install": true
+    },
+    {
+      "name": "path-intellisense",
+      "description": "Autocompletes file paths",
+      "library_name": "christian-kohler.path-intellisense",
+      "install": true
+    },
+    {
+      "name": "markdown-all-in-one",
+      "description": "Table of contents, preview, formatting",
+      "library_name": "yzhang.markdown-all-in-one",
+      "install": true
+    }
+  ],
+  "settings": [
+    {
+      "name": "python.defaultInterpreterPath",
+      "description": "Path to the default Python interpreter.",
+      "setting_value": "/usr/bin/python3",
+      "install": true
+    },
+    {
+      "name": "python.analysis.typeCheckingMode",
+      "description": "Type checking mode for Python analysis.",
+      "setting_value": "off",
+      "install": true
+    },
+    {
+      "name": "python.languageServer",
+      "description": "Python language server to use.",
+      "setting_value": "Pylance",
+      "install": true
+    },
+    {
+      "name": "python.autoComplete.addBrackets",
+      "description": "Automatically add brackets after function completions.",
+      "setting_value": true,
+      "install": true
+    },
+    {
+      "name": "python.autoComplete.showTypeHints",
+      "description": "Show type hints in auto-complete.",
+      "setting_value": true,
+      "install": true
+    },
+    {
+      "name": "python.formatting.provider",
+      "description": "Provider for Python formatting.",
+      "setting_value": "black",
+      "install": true
+    },
+    {
+      "name": "editor.formatOnSave",
+      "description": "Format files on save.",
+      "setting_value": true,
+      "install": true
+    },
+    {
+      "name": "editor.formatOnType",
+      "description": "Format files as you type.",
+      "setting_value": true,
+      "install": true
+    },
+    {
+      "name": "editor.codeActionsOnSave",
+      "description": "Code actions to run on save.",
+      "setting_value": { "source.organizeImports": true },
+      "install": true
+    },
+    {
+      "name": "editor.suggestSelection",
+      "description": "Controls how suggestions are pre-selected when showing the suggest list.",
+      "setting_value": "first",
+      "install": true
+    }
+  ]
+}

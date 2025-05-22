@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub Org & Repo Manager</title>
+</head>
+<body>
+  <h1>GitHub Org Dashboard</h1>
+
+  <label>GitHub Token:
+    <input type="password" id="tokenInput" placeholder="Paste your PAT here" style="width: 400px;" />
+    <button onclick="loadOrgs()">Load Orgs</button>
+  </label>
+
+  <div id="orgList"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>ß
