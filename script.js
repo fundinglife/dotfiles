@@ -105,9 +105,10 @@ async function loadOrgs() {
 
   // Load personal repos block with create form and wait for it to finish before loading orgs
   const personalContainer = document.createElement("div");
+  personalContainer.className = "org-card";
   personalContainer.innerHTML = `
     <h2>Personal</h2>
-    <ul id="repos-personal"></ul>
+    <div id="repos-personal" class="repo-list"></div>
     <form onsubmit="createPersonalRepo(event)">
       <input type="text" placeholder="New personal repo name" name="reponame" required />
       <button type="submit">Create Personal Repo</button>
@@ -121,7 +122,9 @@ async function loadOrgs() {
   for (const org of orgs) {
     debugLog(`[loadOrgs] Org login: ${org.login}`); // Added debug log for each org
     const container = document.createElement("div");
-    container.innerHTML = `<h2>${org.login}</h2><ul id="repos-${org.login}"></ul>
+    container.className = "org-card";
+    container.innerHTML = `<h2>${org.login}</h2>
+      <div id="repos-${org.login}" class="repo-list"></div>
       <form onsubmit="createRepo(event, '${org.login}')">
         <input type="text" placeholder="New repo name" name="reponame" required />
         <button type="submit">Create Repo</button>
