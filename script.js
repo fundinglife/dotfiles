@@ -1,3 +1,4 @@
+document.body.insertAdjacentHTML("beforeend", "<p style='color:green;'>✅ script.js is working</p>");
 let token = (typeof process !== 'undefined' && process.env && process.env.GH_TOKEN) ? process.env.GH_TOKEN : "";
 
 async function githubFetch(url, options = {}) {
