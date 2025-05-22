@@ -71,6 +71,13 @@ async function loadOrgs() {
   debugLog(`[loadOrgs] Orgs: ${JSON.stringify(orgs)}`);
   const orgList = document.getElementById("orgList");
   orgList.innerHTML = "";
+
+  // Load personal repos block
+  const personalContainer = document.createElement("div");
+  personalContainer.innerHTML = `<h2>Personal</h2><ul id="repos-personal"></ul>`;
+  orgList.appendChild(personalContainer);
+  loadPersonalRepos();
+
   for (const org of orgs) {
     debugLog(`[loadOrgs] Org login: ${org.login}`); // Added debug log for each org
     const container = document.createElement("div");
@@ -92,6 +99,26 @@ async function loadRepos(orgLogin) {
   } catch (e) {
     debugLog(`[loadRepos] Error: ${e}`);
     return;
+  }
+    
+  async function loadPersonalRepos() {
+    debugLog('[loadPersonalRepos] Loading personal repositories');
+    let repos;
+    try {
+      repos = await githubFetch("https://api.github.com/user/repos");
+    } catch (e) {
+      debugLog(`[loadPersonalRepos] Error: ${e}`);
+      return;
+    }
+    debugLog(`[loadPersonalRepos] Repos: ${JSON.stringify(repos)}`);
+    const ul = document.getElementById("repos-personal");
+    ul.innerHTML = "";
+    for (const repo of repos) {
+      debugLog(`[loadPersonalRepos] Repo: ${repo.name}`);
+      const li = document.createElement("li");
+      li.textContent = repo.name;
+      ul.appendChild(li);
+    }
   }
   debugLog(`[loadRepos] Repos: ${JSON.stringify(repos)}`);
   const ul = document.getElementById(`repos-${orgLogin}`);
