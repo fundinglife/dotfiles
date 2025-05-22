@@ -149,10 +149,18 @@ async function loadPersonalRepos() {
     debugLog(`[loadPersonalRepos] Fetched repos count: ${repos.length}`);
   } catch (e) {
     debugLog(`[loadPersonalRepos] Error: ${e}`);
+    alert('Error loading personal repositories. See debug console.');
     return;
+  }
+  if (!repos || repos.length === 0) {
+    debugLog('[loadPersonalRepos] No personal repositories found.');
   }
   debugLog(`[loadPersonalRepos] Repos: ${JSON.stringify(repos)}`);
   const ul = document.getElementById("repos-personal");
+  if (!ul) {
+    debugLog('[loadPersonalRepos] No element with id "repos-personal" found.');
+    return;
+  }
   ul.innerHTML = "";
   for (const repo of repos) {
     debugLog(`[loadPersonalRepos] Repo: ${repo.name}`);
